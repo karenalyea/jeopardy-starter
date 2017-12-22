@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {JeopardyService } from './jeopardy.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,11 @@ import {JeopardyService } from './jeopardy.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-
+  
+  //already holds all the info about the question
   questionInfo;
+
+ 
 
   constructor(private jeopardyService: JeopardyService){}
 
@@ -22,8 +25,13 @@ export class AppComponent implements OnInit {
       )
   }
 
+  //will need to be called again for next question
   ngOnInit(){
     this.getDataFromService()
+    
+    
   }
-
+  
+  
+  
 }
